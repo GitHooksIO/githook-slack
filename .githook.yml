@@ -1,0 +1,35 @@
+title: GitHook Slack
+
+description: Post messages to Slack on given webhook events.
+
+entry_point: slack.js
+
+triggered_on:
+  - 'create'
+
+scopes_required:
+  - 'repo'
+
+parameters:
+  url:
+    title: Slack Integration URL
+    description: Will look something like https://hooks.slack.com/services/X/Y/Z
+    type: url
+    required: true
+  text:
+    title: Text
+    description: What message do you want to send?
+    type: string
+    required: true
+  channel:
+    title: Channel
+    description: "#random, #general, #myprivatechannel, @username"
+    type: string
+  username:
+    title: Username
+    description: Username to post as. (Defaults to GitHooksIO)
+    type: string
+  emoji:
+    title: Emoji
+    description: Emoji to accompany the username (e.g. `:rocket`)
+    type: string

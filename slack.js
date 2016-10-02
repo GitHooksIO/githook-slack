@@ -85,7 +85,7 @@ module.exports = function (gh) {
                 'url':      'pull_request.html_url',
                 'assignee': 'pull_request.user.login' // @TODO
             },
-            message: `PR #%{number} assigned to %{assignee}: %{title} (%{url})`
+            message: 'PR #%{number} assigned to %{assignee}: %{title} (%{url})'
         },
         'PR/Issue comment': {
             conditions: [
@@ -104,7 +104,7 @@ module.exports = function (gh) {
                 'author':  'issue.comment.user.login',
                 'comment': 'issue.comment.body'
             },
-            message: `New comment on #%{number} (%{title}) by %{author}: %{url}`
+            message: 'New comment on #%{number} (%{title}) by %{author}: %{url}'
         },
         'Issue opened': {
             conditions: [
@@ -121,7 +121,7 @@ module.exports = function (gh) {
                 'number':  'issue.number',
                 'url':     'issue.html_url'
             },
-            message: `Issue #%{number} opened: %{title} (%{url})`
+            message: 'Issue #%{number} opened: %{title} (%{url})'
         },
         'Issue closed': {
             conditions: [
@@ -138,7 +138,7 @@ module.exports = function (gh) {
                 'number':  'issue.number',
                 'url':     'issue.html_url'
             },
-            message: `Issue #%{number} closed: %{title} (%{url})`
+            message: 'Issue #%{number} closed: %{title} (%{url})'
         },
         'Issue reopened': {
             conditions: [
@@ -155,7 +155,7 @@ module.exports = function (gh) {
                 'number':  'issue.number',
                 'url':     'issue.html_url'
             },
-            message: `Issue #%{number} re-opened: %{title} (%{url})`
+            message: 'Issue #%{number} re-opened: %{title} (%{url})'
         },
         'Issue edited': {
             conditions: [
@@ -172,7 +172,7 @@ module.exports = function (gh) {
                 'number':  'issue.number',
                 'url':     'issue.html_url'
             },
-            message: `Issue #%{number} edited: %{title} (%{url})`
+            message: 'Issue #%{number} edited: %{title} (%{url})'
         },
         'Issue assigned': {
             conditions: [
@@ -190,7 +190,7 @@ module.exports = function (gh) {
                 'url':      'issue.html_url',
                 'assignee': 'issue.user.login' // @TODO
             },
-            message: `Issue #%{number} assigned to %{assignee}: %{title} (%{url})`
+            message: 'Issue #%{number} assigned to %{assignee}: %{title} (%{url})'
         },
         'Fork': {
             conditions: [
@@ -203,7 +203,7 @@ module.exports = function (gh) {
                 'url':     'forkee.html_url',
                 'author':  'forkee.owner.login'
             },
-            message: `%{project} was forked by %{author}: %{url}`
+            message: '%{project} was forked by %{author}: %{url}'
         },
         'Tag': {
             conditions: [
@@ -219,7 +219,7 @@ module.exports = function (gh) {
                 'project': 'repository.full_name',
                 'version': 'release.tag_name'
             },
-            message: `New version of %{project} published: %{version}`
+            message: 'New version of %{project} published: %{version}'
         }
     };
 

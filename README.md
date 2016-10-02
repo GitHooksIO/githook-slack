@@ -1,3 +1,5 @@
+[![GitHooks.io](http://githooks.io/validate/GitHooksIO/githook-slack/img)](http://githooks.io/githooks/GitHooksIO/githook-slack)
+
 #GitHook Slack
 Posts a message to Slack on certain webhook events.
 

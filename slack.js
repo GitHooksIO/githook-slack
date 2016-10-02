@@ -1,26 +1,24 @@
-module.exports = function (data, process) {
+module.exports = function (gh) {
 
-    var request = require('request');
-
-    if (data.payload.ref_type !== 'tag') {
-        process.succeed('Nothing to see here. (No tag was created)');
+    if (gh.data.payload.ref_type !== 'tag') {
+        gh.process.succeed('No tag was created.');
     }
     else {
         var options = {
-            url:      data.parameters.url,
+            url:      gh.data.parameters.url,
             headers: {
                 'Content-Type':  'application/json',
-                'User-Agent':    'githook-post-to-twitter',
+                'User-Agent':    'githook-slack',
             },
-            json: data.parameters
+            json: gh.data.parameters
         };
 
-        request.post(options, function (err, httpResponse, body) {
+        gh.modules.request.post(options, function (err, httpResponse, body) {
             if (err) {
-                process.fail('Fail! Response: ' + err);
+                gh.process.fail('Fail! Response: ' + err);
             }
             else {
-                process.succeed('Success! Response:' + body);
+                gh.process.succeed('Successfully posted to Slack.');
             }
         });
     }

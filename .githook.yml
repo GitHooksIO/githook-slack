@@ -1,14 +1,11 @@
 title: GitHook Slack
-
 description: Post messages to Slack on given webhook events.
+thumbnail: https://cloud.githubusercontent.com/assets/5111927/19020896/f971cdfe-88ac-11e6-902e-faf73c4c08ad.jpg
 
 entry_point: slack.js
 
 triggered_on:
-  - 'create'
-
-scopes_required:
-  - 'repo'
+  - '*'
 
 parameters:
   url:

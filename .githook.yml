@@ -8,18 +8,30 @@ triggered_on:
   - '*'
 
 parameters:
-  url:
-    title: Slack Integration URL
-    description: Will look something like https://hooks.slack.com/services/X/Y/Z
-    type: url
+  event:
+    title: Event
+    description: In response this this event...
+    options:
+      - PR opened
+      - PR closed
+      - PR reopened
+      - PR edited
+      - PR assigned
+      - Issue opened
+      - Issue closed
+      - Issue reopened
+      - Issue edited
+      - Issue assigned
+      - PR/Issue comment
+      - Fork
+      - Tag
     required: true
   text:
     title: Text
-    description: What message do you want to send?
+    description: Send this message...
     type: string
-    required: true
   channel:
-    title: Channel
+    title: 'Channel (default: #general)'
     description: "#random, #general, #myprivatechannel, @username"
     type: string
   username:
@@ -30,3 +42,8 @@ parameters:
     title: Emoji
     description: Emoji to accompany the username (e.g. `:rocket`)
     type: string
+  url:
+    title: Slack Integration URL
+    description: Will look something like https://hooks.slack.com/services/X/Y/Z
+    type: url
+    required: true

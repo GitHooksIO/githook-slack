@@ -249,8 +249,8 @@ module.exports = function (gh) {
     }
     else if (eventName === 'All events') {
         // find the corresponding event information for this payload
-        for (var evt in events) { if (events.hasOwnProperty(evt)) {
-            event = isThisEvent(events[evt]);
+        for (var evtName in events) { if (events.hasOwnProperty(evtName)) {
+            event = isThisEvent(evtName);
             if (event) {
                 break;
             }

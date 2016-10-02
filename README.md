@@ -3,6 +3,8 @@ Posts a message to Slack on certain webhook events.
 
 You are able to choose the event you want to Slack about, and specify a message to send to your channel. You can use template variables as defined below, and they will be automatically replaced by the real values before the message is sent.
 
+Alternatively, you can choose the `All events` option to receive all of the events below in one install. But you will not be able to customise the message text - it will be left as the default values below.
+
 ## Events
 
 ### PR opened

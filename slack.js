@@ -223,22 +223,50 @@ module.exports = function (gh) {
         }
     };
 
-    var eventName = gh.data.parameters.event; // e.g. 'Issue assigned'
+    function isThisEvent(eventName) {
+        var evt = events[eventName];
+        for (var i = 0; i < evt.conditions.length; i++) {
+            var propertyToExist = evt.conditions[i].exists,
+                valueToHave     = evt.conditions[i].value;
 
-    if (!events[eventName]) {
-        gh.process.fail('Invalid event: "' + eventName + '"');
+            if (!gh.data.payload.hasOwnProperty(propertyToExist)) {
+                return false;
+            }
+            else if (valueToHave && valueToHave !== gh.data.payload[propertyToExist]) {
+                return false;
+            }
+        }
+
+        return evt;
     }
 
-    // this block checks if this is the event we want to subscribe to
-    var event = events[eventName];
-    for (var i = 0; i < event.conditions.length; i++) {
-        var propertyToExist = event.conditions[i].exists,
-            valueToHave     = event.conditions[i].value;
+    var eventName = gh.data.parameters.event; // e.g. 'Issue assigned'
 
-        if (!gh.data.payload.hasOwnProperty(propertyToExist)) {
-            gh.process.succeed('Event not identified as a "' + eventName + '" event. Skipping.');
+    var event; // we'll define this later, but need access to it globally
+
+    if (!events[eventName] && eventName !== 'All events') {
+        gh.process.fail('Invalid event: "' + eventName + '"');
+    }
+    else if (eventName === 'All events') {
+        // find the corresponding event information for this payload
+        for (var evt in events) { if (events.hasOwnProperty(evt)) {
+            event = isThisEvent(events[evt]);
+            if (event) {
+                break;
+            }
+            else {
+                event = false;
+            }
+        }}
+
+        if (!event) {
+            gh.process.succeed('This appears to be one of the few events we are not interested in.');
         }
-        else if (valueToHave && valueToHave !== gh.data.payload[propertyToExist]) {
+    }
+    else {
+        // this block checks if this is the event we want to subscribe to
+        event = isThisEvent(eventName);
+        if (!event) {
             gh.process.succeed('Event not identified as a "' + eventName + '" event. Skipping.');
         }
     }

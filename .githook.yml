@@ -25,6 +25,7 @@ parameters:
       - PR/Issue comment
       - Fork
       - Tag
+      - All events
     required: true
   text:
     title: Text

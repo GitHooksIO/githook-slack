@@ -17,7 +17,7 @@ module.exports = function (gh) {
                 'url':    'pull_request.html_url'
             },
             message: 'PR #%{number} opened: %{title} (%{url})'
-        }
+        },
         'PR closed': {
             conditions: [
                 {
@@ -34,7 +34,7 @@ module.exports = function (gh) {
                 'url':    'pull_request.html_url'
             },
             message: 'PR #%{number} closed: %{title} (%{url})'
-        }
+        },
         'PR reopened': {
             conditions: [
                 {
@@ -51,7 +51,7 @@ module.exports = function (gh) {
                 'url':    'pull_request.html_url'
             },
             message: 'PR #%{number} re-opened: %{title} (%{url})'
-        }
+        },
         'PR edited': {
             conditions: [
                 {
@@ -68,7 +68,7 @@ module.exports = function (gh) {
                 'url':    'pull_request.html_url'
             },
             message: 'PR #%{number} edited: %{title} (%{url})'
-        }
+        },
         'PR assigned': {
             conditions: [
                 {
@@ -86,7 +86,7 @@ module.exports = function (gh) {
                 'assignee': 'pull_request.user.login' // @TODO
             },
             message: `PR #%{number} assigned to %{assignee}: %{title} (%{url})`
-        }
+        },
         'PR/Issue comment': {
             conditions: [
                 {
@@ -105,7 +105,7 @@ module.exports = function (gh) {
                 'comment': 'issue.comment.body'
             },
             message: `New comment on #%{number} (%{title}) by %{author}: %{url}`
-        }
+        },
         'Issue opened': {
             conditions: [
                 {
@@ -122,7 +122,7 @@ module.exports = function (gh) {
                 'url':     'issue.html_url'
             },
             message: `Issue #%{number} opened: %{title} (%{url})`
-        }
+        },
         'Issue closed': {
             conditions: [
                 {
@@ -139,7 +139,7 @@ module.exports = function (gh) {
                 'url':     'issue.html_url'
             },
             message: `Issue #%{number} closed: %{title} (%{url})`
-        }
+        },
         'Issue reopened': {
             conditions: [
                 {
@@ -156,7 +156,7 @@ module.exports = function (gh) {
                 'url':     'issue.html_url'
             },
             message: `Issue #%{number} re-opened: %{title} (%{url})`
-        }
+        },
         'Issue edited': {
             conditions: [
                 {
@@ -173,7 +173,7 @@ module.exports = function (gh) {
                 'url':     'issue.html_url'
             },
             message: `Issue #%{number} edited: %{title} (%{url})`
-        }
+        },
         'Issue assigned': {
             conditions: [
                 {
@@ -191,7 +191,7 @@ module.exports = function (gh) {
                 'assignee': 'issue.user.login' // @TODO
             },
             message: `Issue #%{number} assigned to %{assignee}: %{title} (%{url})`
-        }
+        },
         'Fork': {
             conditions: [
                 {
@@ -204,7 +204,7 @@ module.exports = function (gh) {
                 'author':  'forkee.owner.login'
             },
             message: `%{project} was forked by %{author}: %{url}`
-        }
+        },
         'Tag': {
             conditions: [
                 {
